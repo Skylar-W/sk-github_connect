@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery发送ajax上传文件</title>
+</head>
+<body>
+  <form action="">
+    <input type="file" name="avatar">
+    <button>开始上传文件</button>
+  </form>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    $('form').submit(function(ev) {
+      ev.preventDefault()
+      const updata = new FormData($('form')[0])
+      $.ajax({
+        method: 'post',
+        url: 'http://localhost:3004/upload',
+        data: updata,
+        //设置processData为false,防止jQuery修改参数格式
+        processData: false,
+        //设置content-type为false,防止jQuery自动设置请求头
+        contentType: false,
+        success (res) {
+          console.log(res);
+        }
+      })
+    })
+  </script>
+</body>
+</html>

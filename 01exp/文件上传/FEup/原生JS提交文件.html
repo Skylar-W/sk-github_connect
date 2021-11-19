@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原生ajax上传文件</title>
+</head>
+<body>
+  <form action="javascript:;">
+    <input type="file" name="avatar" id="inp">
+    <button>开始上传文件</button>
+  </form>
+  <script>
+    // 原生ajax上传文件
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function(ev) {
+      ev.preventDefault()
+      const updata = new FormData(this)  //自动设置好请求头
+      for(let value of updata) {//使用for...of循环才可以打印看到文件信息
+        console.log(value);
+      }
+      //ajax上传
+      const xhr = new XMLHttpRequest()
+      xhr.onload = function() {
+        console.log('准备上传!');
+      }
+      xhr.open('post', 'http://localhost:3004/upload')
+      xhr.send(updata)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单上传文件--多名称多文件件</title>
+</head>
+<body>
+  <form action="http://localhost:3004/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="avatar" multiple>
+    <input type="file" name="photo" multiple>
+    <input type="file" name="picture" multiple>
+    <button>开始上传文件</button>
+  </form>
+</body>
+</html>

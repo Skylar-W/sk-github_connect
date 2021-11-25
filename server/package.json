@@ -1,0 +1,14 @@
+{
+  "name": "ws",
+  "version": "1.0.0",
+  "description": "this is a test for ws",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "sk",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "7.5.3"
+  }
+}
